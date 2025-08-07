@@ -1,24 +1,26 @@
-🧠 OCR Automation on AWS with Lambda + Textract + S3 + SNS
-Automatically extract text from uploaded documents or images using AWS Textract, and notify users with a pre-signed download link via email. This serverless pipeline runs on AWS Lambda, triggered by S3 events.
+# 🧠 OCR Automation on AWS with Lambda + Textract + S3 + SNS
 
-📌 Features
-🗂 S3 Trigger: Uploading a file to input-bucket triggers the Lambda.
+This project automatically extracts text from uploaded images/documents using **Amazon Textract**, stores the output in **S3**, and sends a **pre-signed download link via email** using **SNS**.
 
-🧠 OCR with Textract: Detects text using DetectDocumentText API.
+---
 
-💾 Text Storage: Extracted text saved as .txt in output-bucket/results/.
+## ✅ Features
 
-🔗 Presigned URL: Generates a secure link to the result file.
+- 🔁 Automatically triggered by S3 uploads
+- 🧠 Uses `Textract` to extract text from documents
+- 💾 Stores `.txt` output in `results/` folder of another S3 bucket
+- 🔗 Generates secure pre-signed URLs
+- 📧 Sends OCR results via SNS email notifications
 
-📬 Email Notification: Sends the link to a pre-configured email via SNS.
+---
 
-⚙️ AWS Services Used
-Amazon S3 – For storing input images and output text files
+## 🛠️ Technologies Used
 
-AWS Lambda – Serverless compute to run the OCR logic
+- **AWS Lambda** – Serverless OCR handler
+- **Amazon S3** – Storage for input & output
+- **Amazon Textract** – Text extraction engine
+- **Amazon SNS** – Email notification with download link
+- **Python (boto3)** – AWS SDK
 
-Amazon Textract – For extracting text from documents
+---
 
-Amazon SNS – To email the pre-signed link
-
-IAM – Permissions for Lambda to access all required services
